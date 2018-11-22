@@ -4,18 +4,20 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-void main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 	FILE *fp = NULL;
-	int i;
 	char input[100];
 	
-	fp=fopen("sample.txt","w");  		//쓸거니까 w 넣기 
-	
-	for(i=0; i<3; i++) {
-		printf("input: a word: ");
-		scanf("%s", input);
-		fprintf(fp, "%s\n", input);
+	while((input[100]=fgetc(fp)) != EOF){
+		putchar(input);
+	}
+	fp=fopen("sample.txt","r"); 
+	 		
+	while(fgets(input, 100, fp)!= NULL) {
+		printf(input);
 	}
 	
 	fclose(fp);
+	
+	return 0;
 }
