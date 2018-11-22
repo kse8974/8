@@ -13,8 +13,10 @@ int main(int argc, char *argv[]) {
 	} 
 	dst[i] = '\0';
 	/*src 내용을 dst로 옮김*/
-	 
 	
-	printf("%s \n", dst);
+	while (src[i]!=0)
+	i++;
+	
+	printf("문자열%s의 길이 : %i\n", src, i);
 	return 0;
 }
