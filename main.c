@@ -4,21 +4,18 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[]) {
-	char src[100] = "Programming course";
-	char dst[100];
+void main(int argc, char *argv[]) {
+	FILE *fp = NULL;
 	int i;
+	char input[100];
 	
-	for(i=0; src[i]!= NULL; i++){
-		dst[i] =src[i];
-	} 
-	dst[i] = '\0';
-	/*src 내용을 dst로 옮김*/
+	fp=fopen("sample.txt","w");  		//쓸거니까 w 넣기 
 	
-	while (src[i]!=0)
-	i++;
+	for(i=0; i<3; i++) {
+		printf("input: a word: ");
+		scanf("%s", input);
+		fprintf(fp, "%s\n", input);
+	}
 	
-	printf("%i\n", strlen(src));
-	printf("문자열%s의 길이 : %i\n", src, i);
-	return 0;
+	fclose(fp);
 }
