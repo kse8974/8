@@ -7,11 +7,14 @@
 int main(int argc, char *argv[]) {
 	FILE *fp = NULL;
 	char input[100];
-	
+	fp=fopen("sample.txt","r"); 
+
+	/*
 	while((input[100]=fgetc(fp)) != EOF){
 		putchar(input);
 	}
-	fp=fopen("sample.txt","r"); 
+	*/
+	
 	 		
 	while(fgets(input, 100, fp)!= NULL) {
 		printf(input);
