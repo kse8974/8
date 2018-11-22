@@ -5,30 +5,30 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	FILE *fp1 = NULL;
-	FILE *fp2 = NULL;
-	char input;
-	char original[100];
-	char copy[100];
-	int i=0;
+	FILE *fp = NULL;
+	char input[100];
+	char filename[100];
+	char word[100];
 	
 	
-	printf("original file name : ");
-	scanf("%s", original);
-	printf("copy file name : ");
-	scanf("%s", copy);
+	printf("file name : ");
+	scanf("%s", filename);
 	
-	fp1=fopen(original,"r");
-	fp2=fopen(copy,"w");
+	fp=fopen(filename,"r");
 	
-	while((input = fgetc(fp1)) != EOF){
-		fputc(input, fp2);
-		i++;
+	printf("input a weord to find: ");
+	scanf("%s", word);
+	
+	while( fgets(input, 100, fp) !=NULL){
+		if(strncmp(input, word, strlen(word))==0)
+		//if (strcmp(input, word)==0)
+		{
+			printf("find a word %s \n", input);
+		}
 	}
 	
-	printf("copy succeed (%i bytes copied)\n", i);
+	printf("search done!\n");
 	
-	fclose(fp1);
-	fclose(fp2);	
+	fclose(fp);	
 	return 0;
 }
